@@ -79,13 +79,12 @@ function drawBrick(brickX, brickY, brickWidth, brickHeight) {
 function drawBricks() {
         for (let c = 0; c < brickColumnCount; c++) {
                 for (let r = 0; r < brickRowCount; r++) {
-
-                        if (bricks[c][r].state === 1) {
+                        const block = bricks[c][r];
+                        if (isThere(block)) {
                                 const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
                                 const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
-                                bricks[c][r].x = brickX;
-                                bricks[c][r].y = brickY;
-
+                                block.x = brickX;
+                                block.y = brickY;
                                 drawBrick(brickX, brickY, brickWidth, brickHeight);
                         }
                 }
